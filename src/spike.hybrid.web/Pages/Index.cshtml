@@ -1,0 +1,39 @@
+﻿@page
+@model spike.hybrid.web.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="text-center">
+    <h1 class="display-4">Hello @User.Identity.Name!</h1>           
+    <p><a asp-area="AzureAD" asp-controller="Account" asp-action="SignOut">Sign out</a></p>
+</div>
+}
+else
+{
+    <div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p><a asp-area="AzureAD" asp-controller="Account" asp-action="SignIn">Sign In</a></p>
+</div>
+}
+
+<div class="row">
+    <div class="col">
+        <button class="btn btn-primary" type="button" onclick="updateDbStatus('db-alert')">Test db connection</button>
+        <div id="db-alert" class="alert alert-primary" role="alert">Checking status...</div>
+    </div>
+    <div class="col">
+        <button class="btn btn-secondary"  type="button" onclick="updateSmtpStatus('smtp-alert')">Test smtp relay</button>
+        <div id="smtp-alert" class="alert alert-secondary hide" role="alert">Click the button to verify smtp relay is working</div>
+    </div>
+</div>
+
+
+@section scripts{
+<script>
+    updateDbStatus('db-alert');
+    //updateSmtpStatus('smtp-alert');
+</script>
+}
