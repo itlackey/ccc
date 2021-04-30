@@ -12,11 +12,13 @@ namespace spike.hybrid.web.Pages
     {
         private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(ILogger<IndexModel> logger, IConfiguration configuration)
         {
             _logger = logger;
+            this.Configuration = configuration;
         }
 
+        public IConfiguration Configuration { get; set; }
         public void OnGet()
         {
 

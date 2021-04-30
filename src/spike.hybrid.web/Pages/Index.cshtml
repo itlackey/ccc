@@ -27,6 +27,10 @@ else
     <div class="col">
         <button class="btn btn-secondary"  type="button" onclick="updateSmtpStatus('smtp-alert')">Test smtp relay</button>
         <div id="smtp-alert" class="alert alert-secondary hide" role="alert">Click the button to verify smtp relay is working</div>
+        <div>
+            @Model.Configuration["SmtpConfiguration:host"]
+            @Model.Configuration["SmtpConfiguration:fromAddress"]
+        </div>
     </div>
 </div>
 
