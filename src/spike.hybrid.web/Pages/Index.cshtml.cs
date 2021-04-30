@@ -24,7 +24,7 @@ namespace spike.hybrid.web.Pages
         {
             var conn =  Configuration.GetConnectionString("DefaultConnection");
 
-            ViewData["Connection"] =conn?.Substring(0, conn.IndexOf("Password"));
+            ViewData["Connection"] = ""; // conn?.Substring(0, conn.IndexOf("Password"));
         }
     }
 }
