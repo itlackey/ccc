@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
 
 namespace spike.hybrid.web.Pages
 {
@@ -21,7 +22,7 @@ namespace spike.hybrid.web.Pages
         public IConfiguration Configuration { get; set; }
         public void OnGet()
         {
-
+            ViewData["Connection"] = Configuration.GetConnectionString("DefaultConnection");
         }
     }
 }

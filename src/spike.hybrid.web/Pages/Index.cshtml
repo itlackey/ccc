@@ -23,6 +23,9 @@ else
     <div class="col">
         <button class="btn btn-primary" type="button" onclick="updateDbStatus('db-alert')">Test db connection</button>
         <div id="db-alert" class="alert alert-primary" role="alert">Checking status...</div>
+         <div>
+            @ViewBag.Connection                   
+        </div>
     </div>
     <div class="col">
         <button class="btn btn-secondary"  type="button" onclick="updateSmtpStatus('smtp-alert')">Test smtp relay</button>
