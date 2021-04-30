@@ -22,7 +22,9 @@ namespace spike.hybrid.web.Pages
         public IConfiguration Configuration { get; set; }
         public void OnGet()
         {
-            ViewData["Connection"] = Configuration.GetConnectionString("DefaultConnection");
+            var conn =  Configuration.GetConnectionString("DefaultConnection");
+
+            ViewData["Connection"] =conn?.Substring(0, conn.IndexOf("Password"));
         }
     }
 }
